@@ -5,7 +5,7 @@ metadata:
   namespace: roboshop
   # deployment labels
   labels: 
-    purpose: mongodb
+    component: mongodb
     project: roboshop
     tier: database
 spec: 
@@ -34,12 +34,12 @@ metadata:
   name: mongodb
   namespace: roboshop
   labels: 
-    components: mongodb
+    component: mongodb
     project: roboshop
     tier: database
 spec: 
   selector: 
-    components: mongodb
+    component: mongodb
     project: roboshop
     tier: database
   ports:

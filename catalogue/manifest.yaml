@@ -51,12 +51,12 @@ metadata:
   name: catalogue
   namespace: roboshop
   labels: 
-    components: catalogue
+    component: catalogue
     project: roboshop
     tier: app
 spec: 
   selector: 
-    components: catalogue
+    component: catalogue
     project: roboshop
     tier: app
   ports:
