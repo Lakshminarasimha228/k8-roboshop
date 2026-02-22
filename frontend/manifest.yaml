@@ -91,7 +91,7 @@ spec:
       project: roboshop
       tier: web
 # This is pod definition
-  template:
+    template:
     metadata:
       labels:
         component: frontend
@@ -100,20 +100,19 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: lakshminarasimha228/frontend:v1
+        image: joindevops/frontend:v1
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-      # This is volume definition, this will create a volume from config map and mount it to container, this will override the default nginx.conf file in container with the one we provided in config map
-    volumes:
-      - name: nginx-conf
-        configMap:
-          name: nginx-conf
-          items:
-            - key: nginx.conf
-              path: nginx.conf
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+            items:
+              - key: nginx.conf
+                path: nginx.con
 
 ---
 apiVersion: v1
