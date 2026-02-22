@@ -39,7 +39,7 @@ data:
 
         server {
             listen       8080;
-            listen       [::]:80;
+            listen       [::]:8080;
             server_name  _;
             root         /usr/share/nginx/html;
 
@@ -102,15 +102,15 @@ spec:
       - name: frontend
         image: lakshminarasimha228/frontend:v1
         volumeMounts:
-        - name: nginx-config
+        - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
       # This is volume definition, this will create a volume from config map and mount it to container, this will override the default nginx.conf file in container with the one we provided in config map
     volumes:
-      - name: nginx-config
+      - name: nginx-conf
         configMap:
-          name: nginx-config
+          name: nginx-conf
           items:
             - key: nginx.conf
               path: nginx.conf
