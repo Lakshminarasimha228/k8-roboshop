@@ -14,7 +14,7 @@ spec:
     matchLabels:
       component: mongodb
       project: roboshop
-      app: database
+      tier: database
 # this is pod defination
   template:
     metadata:
