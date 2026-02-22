@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: frontend
+  name: nginx-conf
   namespace: roboshop
   labels:
     component: frontend
@@ -90,8 +90,8 @@ spec:
       component: frontend
       project: roboshop
       tier: web
-# This is pod definition
-    template:
+  # This is pod definition
+  template:
     metadata:
       labels:
         component: frontend
@@ -112,8 +112,7 @@ spec:
             name: nginx-conf
             items:
               - key: nginx.conf
-                path: nginx.con
-
+                path: nginx.conf
 ---
 apiVersion: v1
 kind: Service
@@ -125,7 +124,6 @@ metadata:
     project: roboshop
     tier: web
 spec:
-  type: LoadBalancer
   selector:
     component: frontend
     project: roboshop
@@ -133,4 +131,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80 # service port
-    targetPort: 8080 # container port      
+    targetPort: 8080 # container port
