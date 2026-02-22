@@ -107,7 +107,7 @@ spec:
           subPath: nginx.conf
           readOnly: true
       # This is volume definition, this will create a volume from config map and mount it to container, this will override the default nginx.conf file in container with the one we provided in config map
-    volume:
+    volumes:
       - name: nginx-config
         configMap:
           name: nginx-config
@@ -134,4 +134,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80 # service port
-    targetPort: 80 # container port      
+    targetPort: 8080 # container port      
